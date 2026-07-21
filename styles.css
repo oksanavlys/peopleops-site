@@ -388,7 +388,6 @@ section {
 .case-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 
 .case-title-page { font-size: clamp(26px, 4vw, 36px); margin: 0 0 8px; }
-.case-sub { color: var(--muted); font-size: 15px; margin: 0 0 28px; }
 .case-contractor-note { font-size: 13px; color: var(--muted); font-style: italic; margin: 0 0 28px; }
 
 .case-hook { font-size: 19px; font-weight: 600; line-height: 1.5; margin: 0 0 16px; }
@@ -446,35 +445,47 @@ section {
   margin-bottom: 6px;
 }
 
-/* Case studies: metrics */
-.case-metrics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
-  margin: 8px 0 24px;
+/* Case studies: outcomes (pain -> outcome transformation) */
+.case-transform {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 8px 0 8px;
 }
-.case-metric {
+
+.case-transform-row {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr;
+  gap: 18px;
+  align-items: center;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 20px 22px;
 }
-.case-metric-val { font-size: 24px; font-weight: 700; color: var(--violet-dark); margin: 0 0 4px; }
-.case-metric-label { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.4; }
 
-/* Case studies: outcomes */
-.case-outcomes { margin: 0 0 8px; padding: 0; list-style: none; }
-.case-outcomes li {
-  padding: 12px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 15px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  color: var(--ink);
+.case-transform-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
-.case-outcomes li:last-child { border-bottom: none; }
-.case-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--violet); flex-shrink: 0; margin-top: 8px; }
+
+.case-transform-before .case-transform-label { color: var(--muted); }
+.case-transform-after .case-transform-label { color: var(--violet-dark); }
+
+.case-transform-before p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 0; }
+.case-transform-after p { color: var(--ink); font-size: 14px; line-height: 1.6; margin: 0; font-weight: 500; }
+.case-transform-after strong { color: var(--violet-dark); }
+
+.case-transform-arrow { color: var(--violet); font-size: 18px; text-align: center; }
+
+@media (max-width: 720px) {
+  .case-transform-row { grid-template-columns: 1fr; }
+  .case-transform-arrow { transform: rotate(90deg); justify-self: center; }
+}
 
 /* Case studies: services */
 .case-services { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
